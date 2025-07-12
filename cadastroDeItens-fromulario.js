@@ -1,6 +1,7 @@
 function criarFormularioItens() {
   // criei esse IF para impedir que o formulario seja criado caso o usuario clique 2 vezes no botão 'cadastrar item'
   if (document.getElementById("cadastroDeItensFormulario")) {
+    document.getElementById("cadastroDeItensFormulario").remove();
     return;
   }
 
