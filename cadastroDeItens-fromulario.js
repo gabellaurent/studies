@@ -22,10 +22,3 @@ function criarFormularioItens() {
   formulario.appendChild(formularioBotao);
   document.body.appendChild(formulario);
 }
-
-window.addEventListener("DOMContentLoaded", () => {
-  const cadastroDeItensButton = document.getElementById("cadastroDeItensBotao");
-  if (cadastroDeItensButton) {
-    cadastroDeItensButton.addEventListener("click", criarFormularioItens);
-  }
-});

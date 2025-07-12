@@ -7,6 +7,7 @@ function criarTopo() {
   const ulLi1 = document.createElement("li");
   const item1 = document.createElement("a");
   item1.textContent = "Exercicio Cadastro";
+  item1.id = "linkCadastroItens";
   item1.href = "#";
   ulLi1.appendChild(item1);
 
@@ -22,4 +23,6 @@ function criarTopo() {
   document.body.appendChild(menu);
 }
 
-criarTopo();
+window.addEventListener("DOMContentLoaded", () => {
+  criarTopo();
+});
