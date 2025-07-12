@@ -20,5 +20,5 @@ function criarFormularioItens() {
 
   formulario.appendChild(formularioInput);
   formulario.appendChild(formularioBotao);
-  document.body.appendChild(formulario);
+  document.body.insertBefore(formulario, listaDeItens);
 }
