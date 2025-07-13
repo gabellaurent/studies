@@ -21,12 +21,28 @@ function criarFormularioItens() {
   formulario.appendChild(formularioInput);
   formulario.appendChild(formularioBotao);
 
-  // ✅ Escuta o submit do formulário
+  // Escuta o submit do formulário
   formulario.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const valor = formularioInput.value.trim();
-    if (!valor) return;
+
+    // Verifica se são exatamente 6 dígitos numéricos
+    const regexSeisDigitos = /^\d{6}$/;
+    if (!regexSeisDigitos.test(valor)) {
+      // Verifica se já existe uma mensagem de erro
+      const erroExistente = document.getElementById("erroDeFormulario");
+      if (erroExistente) return;
+
+      // Cria a mensagem de erro
+      const alertaDeErro = document.createElement("p");
+      alertaDeErro.id = "erroDeFormulario";
+      alertaDeErro.textContent = "Por favor, insira exatamente 6 números.";
+      alertaDeErro.style.color = "red";
+
+      document.body.insertBefore(alertaDeErro, listaDeItens);
+      return;
+    }
 
     const lista = document.getElementById("listaDeItens");
     if (!lista) return;
@@ -42,6 +58,7 @@ function criarFormularioItens() {
     lista.appendChild(novoItem);
 
     formularioInput.value = ""; // limpa o input
+    erroDeFormulario.remove();
   });
 
   document.body.insertBefore(formulario, listaDeItens);
